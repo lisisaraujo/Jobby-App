@@ -1,15 +1,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("username")
+     var username: String = ""
+    
+    @AppStorage("appStart")
+     var isAppStarted: Bool = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            VStack {
+                if !isAppStarted {
+                    WelcomeScreenView(username: $username, isAppStarted: $isAppStarted)
+                } else {
+                    JobsView(username: $username)
+                }
+            }
+            .padding()
         }
-        .padding()
-    }
+    
 }
 
 #Preview {
