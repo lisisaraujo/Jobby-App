@@ -6,9 +6,17 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Skill: Identifiable{
-    let id: UUID = UUID()
+@Model
+class Skill: Identifiable {
+    let id: UUID
     var title: String
-    var description: String
+    var details: String
+    
+    init(title: String, details: String) {
+        self.id = UUID()
+        self.title = title
+        self.details = details
     }
+}

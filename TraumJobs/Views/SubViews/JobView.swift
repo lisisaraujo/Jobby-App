@@ -52,9 +52,9 @@ struct JobView: View {
         details: "Build and maintain data pipelines to collect, process, and store large amounts of data.",
         isFavorited: false,
         skills: [
-            Skill(title: "Python", description: "A programming language commonly used for data analysis."),
-            Skill(title: "Apache Spark", description: "An open-source unified analytics engine for big data processing."),
-            Skill(title: "AWS Glue", description: "A fully managed ETL service for preparing data for analytics.")
+            Skill(title: "Python", details: "A programming language commonly used for data analysis."),
+            Skill(title: "Apache Spark", details: "An open-source unified analytics engine for big data processing."),
+            Skill(title: "AWS Glue", details: "A fully managed ETL service for preparing data for analytics.")
         ],
         location: "San Francisco, CA",
         contractType: "Full-time",

@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Job: Identifiable{
-    let id: UUID = UUID()
+@Model
+class Job: Identifiable {
+    let id: UUID
     var company: Company
     var title: String
     var details: String
@@ -17,5 +19,19 @@ struct Job: Identifiable{
     var location: String
     var contractType: String
     var isActive: Bool
-    var postDate: Date = Date()
+    var postDate: Date
+    
+    init(company: Company, title: String, details: String, isFavorited: Bool,
+         skills: [Skill], location: String, contractType: String, isActive: Bool) {
+        self.id = UUID()
+        self.company = company
+        self.title = title
+        self.details = details
+        self.isFavorited = isFavorited
+        self.skills = skills
+        self.location = location
+        self.contractType = contractType
+        self.isActive = isActive
+        self.postDate = Date()
+    }
 }

@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     
@@ -17,6 +18,11 @@ struct ContentView: View {
                 }
             }
             .padding()
+            .modelContainer(for: [
+                Job.self,
+                Skill.self,
+                Company.self
+                           ])
         }
     
 }
