@@ -37,7 +37,9 @@ struct JobsView: View {
                         .cornerRadius(8)
                 }
                 
-                NavigationLink(destination: JobAddView(path: $path)) {
+                Button(action: {
+                    path.append("JobAddView")
+                }) {
                     Text("Add Job")
                         .padding()
                         .background(Color.green)
@@ -46,6 +48,11 @@ struct JobsView: View {
                 }
             }
             .navigationTitle("Jobs")
+            .navigationDestination(for: String.self) { value in
+                if value == "JobAddView" {
+                    JobAddView(path: $path)
+                }
+            }
         }
     }
     
@@ -123,79 +130,7 @@ struct JobsView: View {
                 location: "Chicago, IL",
                 contractType: "Full-time",
                 isActive: true
-            ),
-            Job(
-                company: Company(name: "DevOps Corp", location: "Boston, MA", teamSize: 60, branche: "DevOps", foundationYear: 2014),
-                title: "DevOps Engineer",
-                details: "Automate and streamline the software development and deployment process.",
-                isFavorited: false,
-                skills: [
-                    Skill(title: "Docker", details: "A platform for developing, shipping, and running applications in containers."),
-                    Skill(title: "Kubernetes", details: "An open-source system for automating the deployment, scaling, and management of applications."),
-                    Skill(title: "AWS", details: "Amazon Web Services, a comprehensive cloud computing platform.")
-                ],
-                location: "Boston, MA",
-                contractType: "Full-time",
-                isActive: true
-            ),
-            Job(
-                company: Company(name: "Product Innovations", location: "Los Angeles, CA", teamSize: 45, branche: "Product Management", foundationYear: 2013),
-                title: "Product Manager",
-                details: "Define and execute the product vision, working closely with engineering and design teams.",
-                isFavorited: true,
-                skills: [
-                    Skill(title: "Agile", details: "A project management methodology that encourages iterative development."),
-                    Skill(title: "Market Analysis", details: "Researching market trends and consumer needs."),
-                    Skill(title: "Roadmapping", details: "Creating a strategic plan that outlines the vision and direction for a product.")
-                ],
-                location: "Los Angeles, CA",
-                contractType: "Full-time",
-                isActive: false
-            ),
-            Job(
-                company: Company(name: "AI Solutions", location: "Seattle, WA", teamSize: 35, branche: "Machine Learning", foundationYear: 2019),
-                title: "Machine Learning Engineer",
-                details: "Develop and deploy machine learning models to solve complex problems.",
-                isFavorited: false,
-                skills: [
-                    Skill(title: "Python", details: "A high-level programming language used for machine learning."),
-                    Skill(title: "TensorFlow", details: "An open-source library for machine learning and artificial intelligence."),
-                    Skill(title: "AWS SageMaker", details: "A fully managed service to build, train, and deploy machine learning models.")
-                ],
-                location: "Seattle, WA",
-                contractType: "Full-time",
-                isActive: true
-            ),
-            Job(
-                company: Company(name: "Full Stack Devs", location: "New York, NY", teamSize: 50, branche: "Web Development", foundationYear: 2011),
-                title: "Full-Stack Developer",
-                details: "Design and implement end-to-end web applications, working on both front-end and back-end.",
-                isFavorited: true,
-                skills: [
-                    Skill(title: "JavaScript", details: "A programming language that enables interactive web pages."),
-                    Skill(title: "React", details: "A JavaScript library for building user interfaces."),
-                    Skill(title: "Node.js", details: "A JavaScript runtime built on Chrome's V8 engine."),
-                    Skill(title: "SQL", details: "A language for managing and querying relational databases.")
-                ],
-                location: "New York, NY",
-                contractType: "Full-time",
-                isActive: true
-            ),
-            Job(
-                company: Company(name: "Data Solutions", location: "San Francisco, CA", teamSize: 40, branche: "Data Engineering", foundationYear: 2017),
-                title: "Data Engineer",
-                details: "Build and maintain data pipelines to collect, process, and store large amounts of data.",
-                isFavorited: false,
-                skills: [
-                    Skill(title: "Python", details: "A programming language commonly used for data analysis."),
-                    Skill(title: "Apache Spark", details: "An open-source unified analytics engine for big data processing."),
-                    Skill(title: "AWS Glue", details: "A fully managed ETL service for preparing data for analytics.")
-                ],
-                location: "San Francisco, CA",
-                contractType: "Full-time",
-                isActive: true
-            )
-        ]
+            )]
         
         for job in sampleJobs {
             context.insert(job)

@@ -41,6 +41,8 @@ struct JobAddView: View {
                 Button(action: {
                     saveJobDetails()
                     path.removeLast()
+
+                
                 }) {
                     Text("Save Job")
                         .frame(maxWidth: .infinity)
