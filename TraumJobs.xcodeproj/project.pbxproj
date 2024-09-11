@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A76A5CD42C91C177007E0421 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76A5CD32C91C177007E0421 /* HomeView.swift */; };
+		A76A5CD62C91C50B007E0421 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76A5CD52C91C50B007E0421 /* FavoritesView.swift */; };
+		A76A5CD92C91D134007E0421 /* SortingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76A5CD82C91D134007E0421 /* SortingOptions.swift */; };
+		A76A5CDB2C91DB1B007E0421 /* JobDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76A5CDA2C91DB1B007E0421 /* JobDetailsView.swift */; };
 		A7A0C15C2C8EFF1800526A45 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0C15B2C8EFF1800526A45 /* Job.swift */; };
 		A7A0C15E2C8EFF2100526A45 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0C15D2C8EFF2100526A45 /* Skill.swift */; };
 		A7A0C1612C8F017300526A45 /* WelcomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A0C1602C8F017300526A45 /* WelcomeScreenView.swift */; };
@@ -22,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A76A5CD32C91C177007E0421 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A76A5CD52C91C50B007E0421 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		A76A5CD82C91D134007E0421 /* SortingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortingOptions.swift; sourceTree = "<group>"; };
+		A76A5CDA2C91DB1B007E0421 /* JobDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailsView.swift; sourceTree = "<group>"; };
 		A7A0C15B2C8EFF1800526A45 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		A7A0C15D2C8EFF2100526A45 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		A7A0C1602C8F017300526A45 /* WelcomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenView.swift; sourceTree = "<group>"; };
@@ -48,9 +56,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A76A5CD72C91D123007E0421 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				A76A5CD82C91D134007E0421 /* SortingOptions.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		A7A0C15A2C8EFF0D00526A45 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A76A5CD72C91D123007E0421 /* Enums */,
 				A7A0C15B2C8EFF1800526A45 /* Job.swift */,
 				A7A0C15D2C8EFF2100526A45 /* Skill.swift */,
 				A7A0C1692C8F207F00526A45 /* Company.swift */,
@@ -65,6 +82,9 @@
 				A7A0C1602C8F017300526A45 /* WelcomeScreenView.swift */,
 				A7A0C1652C8F034300526A45 /* JobsView.swift */,
 				A7A0C16F2C90752700526A45 /* JobAddView.swift */,
+				A76A5CD32C91C177007E0421 /* HomeView.swift */,
+				A76A5CD52C91C50B007E0421 /* FavoritesView.swift */,
+				A76A5CDA2C91DB1B007E0421 /* JobDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,13 +205,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A76A5CD42C91C177007E0421 /* HomeView.swift in Sources */,
 				CE75F23F2C8B14A4001AD0A3 /* ContentView.swift in Sources */,
 				A7A0C1612C8F017300526A45 /* WelcomeScreenView.swift in Sources */,
 				A7A0C16A2C8F207F00526A45 /* Company.swift in Sources */,
+				A76A5CD92C91D134007E0421 /* SortingOptions.swift in Sources */,
 				A7A0C1662C8F034300526A45 /* JobsView.swift in Sources */,
 				A7A0C1702C90752700526A45 /* JobAddView.swift in Sources */,
 				A7A0C1632C8F02DE00526A45 /* ButtonView.swift in Sources */,
 				A7A0C15E2C8EFF2100526A45 /* Skill.swift in Sources */,
+				A76A5CDB2C91DB1B007E0421 /* JobDetailsView.swift in Sources */,
+				A76A5CD62C91C50B007E0421 /* FavoritesView.swift in Sources */,
 				A7A0C15C2C8EFF1800526A45 /* Job.swift in Sources */,
 				A7A0C1682C8F046500526A45 /* JobView.swift in Sources */,
 				CE75F23D2C8B14A4001AD0A3 /* TraumJobsApp.swift in Sources */,

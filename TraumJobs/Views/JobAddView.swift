@@ -20,7 +20,7 @@ struct JobAddView: View {
     @Environment(\.modelContext) var context 
     @State private var title: String = ""
     @State private var description: String = ""
-    @State private var salary: String = ""
+    @State private var salary: Int = 0
     @Binding var path: NavigationPath
     
     var body: some View {
@@ -33,7 +33,7 @@ struct JobAddView: View {
                     TextField("Job Description", text: $description)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                     
-                    TextField("Salary", text: $salary)
+                    TextField("Salary", value: $salary, format: .number)
                         .keyboardType(.decimalPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
@@ -57,16 +57,13 @@ struct JobAddView: View {
     }
     
     private func saveJobDetails() {
-        guard Double(salary) != nil else {
-            print("Invalid salary input")
-            return
-        }
+    
         
-        let newJob = Job(company: Company(name: "", location: "", teamSize: 2, branche: "", foundationYear: 2024),
+        let newJob = Job(
                          title: title,
                          details: description,
+                         salary: salary,
                          isFavorited: false,
-                         skills: [],
                          location: "",
                          contractType: "",
                          isActive: true)

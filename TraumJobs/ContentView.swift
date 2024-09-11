@@ -11,19 +11,18 @@ struct ContentView: View {
     
     
     
+    
     var body: some View {
             VStack {
                 if !isAppStarted {
                     WelcomeScreenView(username: $username, isAppStarted: $isAppStarted)
                 } else {
-                    JobsView(username: $username)
+                   HomeView()
                 }
             }
             .padding()
             .modelContainer(for: [
-                Job.self,
-                Skill.self,
-                Company.self
+                Job.self
                            ])
         }
     
