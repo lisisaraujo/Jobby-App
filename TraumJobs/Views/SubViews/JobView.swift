@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct JobView: View {
     
@@ -46,7 +47,9 @@ struct JobView: View {
 }
 
 #Preview {
-    JobView(job: Job(
+    let container = try! ModelContainer(for: Company.self, Job.self, Skill.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
+    
+    return JobView(job: Job(
         company: Company(name: "Data Solutions", location: "San Francisco, CA", teamSize: 40, branche: "Data Engineering", foundationYear: 2017),
         title: "Data Engineer",
         details: "Build and maintain data pipelines to collect, process, and store large amounts of data.",
@@ -60,4 +63,5 @@ struct JobView: View {
         contractType: "Full-time",
         isActive: true
     ))
+    .modelContainer(container)
 }

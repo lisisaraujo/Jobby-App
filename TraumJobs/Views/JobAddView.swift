@@ -57,7 +57,7 @@ struct JobAddView: View {
     }
     
     private func saveJobDetails() {
-        guard let salaryValue = Double(salary) else {
+        guard Double(salary) != nil else {
             print("Invalid salary input")
             return
         }

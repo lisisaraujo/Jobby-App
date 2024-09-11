@@ -9,6 +9,8 @@ struct ContentView: View {
     @AppStorage("appStart")
      var isAppStarted: Bool = false
     
+    
+    
     var body: some View {
             VStack {
                 if !isAppStarted {

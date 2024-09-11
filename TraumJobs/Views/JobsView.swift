@@ -10,22 +10,42 @@ import SwiftData
 
 struct JobsView: View {
     
-    @Binding var username: String
-    @Environment(\.modelContext) var context
-    @Query var jobs: [Job]
     @State private var path = NavigationPath()
     
+    @Binding var username: String
+    
+    @Environment(\.modelContext) var context
+    @Query var jobs: [Job]
+    
+    @Query(filter: #Predicate<Job> { job in
+            job.isFavorited == true
+        }) var favoriteJobs: [Job]
+    
+   @State var showFavorites: Bool = false
     
     var body: some View {
         NavigationStack(path: $path) {
             VStack {
-                Text("Welcome \(username)")
-                    .font(.largeTitle)
-                    .padding()
-                
-                List(jobs) { job in
-                    JobView(job: job)
+                HStack{
+                    Text("Welcome \(username)")
+                        .font(.largeTitle)
+                        .padding()
+                    
+                    Button (showFavorites ? "Favorites" : "All Jobs"){
+                        showFavorites.toggle()
+                    }
                 }
+             
+
+                List(showFavorites ? jobs : favoriteJobs) { job in
+                     JobView(job: job)
+                         .swipeActions {
+                             Button(job.isFavorited ? "Unfavorite" : "Favorite") {
+                                 toggleFavorite(job: job)
+                             }
+                             .tint(job.isFavorited ? .pink : .blue)
+                         }
+                 }
                 
                 Button(action: {
                     insertSampleJobs()
@@ -137,6 +157,13 @@ struct JobsView: View {
         }
         
     }
+    
+    private func toggleFavorite(job: Job) {
+        job.isFavorited.toggle()
+        
+        context.insert(job)
+    }
+    
     
 }
 
