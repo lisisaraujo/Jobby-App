@@ -8,14 +8,13 @@
 import SwiftUI
 import SwiftData
 
-struct JobView: View {
+struct JobListItemView: View {
     
-    var job: Job
+  var job: Job
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            
-  
+              
             Text(job.isActive ? "Active" : "Disabled")
                 .fontWeight(.bold)
                 .foregroundColor(job.isActive ? .green : .red)
@@ -28,13 +27,6 @@ struct JobView: View {
                 .font(.subheadline)
                 .foregroundColor(.blue)
             
-            Text("Description:")
-                .fontWeight(.bold)
-            Text(job.details)
-            Text("Salary:")
-            Text(String(job.salary))
-            
-    
         }
         .padding()
     }
@@ -43,8 +35,8 @@ struct JobView: View {
 #Preview {
     let container = try! ModelContainer(for: Job.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
     
-    return JobView(job: Job(
-        title: "Data Engineer",
+    return JobListItemView(job: Job(
+        company: Company(name: "Acme Corp", location: "San Francisco, CA", teamSize: 500, branche: "Technology", foundationYear: 1990), title: "Data Engineer",
         details: "Build and maintain data pipelines to collect, process, and store large amounts of data.", salary: 2000,
         isFavorited: false,
         location: "San Francisco, CA",

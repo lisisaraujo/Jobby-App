@@ -27,7 +27,7 @@ struct FavoritesView: View {
         VStack {
             
             List(jobsSortedBytitle) { job in
-                JobView(job: job)
+                JobListItemView(job: job)
                     .swipeActions {
                         Button(job.isFavorited ? "Unfavorite" : "Favorite") {
                             toggleFavorite(job: job)

@@ -18,9 +18,11 @@ import SwiftData
 struct JobAddView: View {
     
     @Environment(\.modelContext) var context 
+    
     @State private var title: String = ""
     @State private var description: String = ""
     @State private var salary: Int = 0
+    @State private var company: Company = sampleCompanies.randomElement()!
     @Binding var path: NavigationPath
     
     var body: some View {
@@ -32,6 +34,7 @@ struct JobAddView: View {
                     
                     TextField("Job Description", text: $description)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                
                     
                     TextField("Salary", value: $salary, format: .number)
                         .keyboardType(.decimalPad)
@@ -60,7 +63,7 @@ struct JobAddView: View {
     
         
         let newJob = Job(
-                         title: title,
+            company: company, title: title,
                          details: description,
                          salary: salary,
                          isFavorited: false,
@@ -75,5 +78,8 @@ struct JobAddView: View {
 }
 
 #Preview {
-    JobAddView(path: .constant(NavigationPath()))
+    let container = try! ModelContainer(for: Job.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
+    
+    return JobAddView(path: .constant(NavigationPath()))
+        .modelContainer(container)
 }

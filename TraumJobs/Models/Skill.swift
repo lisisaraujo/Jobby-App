@@ -14,9 +14,13 @@ class Skill: Identifiable {
     var title: String
     var details: String
     
+    @Relationship(inverse: \Job.skills)
+    var jobs: [Job] = []
+    
     init(title: String, details: String) {
         self.id = UUID()
         self.title = title
         self.details = details
+        self.jobs = []
     }
 }

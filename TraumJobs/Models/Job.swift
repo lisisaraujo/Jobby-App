@@ -11,25 +11,25 @@ import SwiftData
 @Model
 class Job: Identifiable {
     let id: UUID
-    //var company: Company
+    var company: Company?
     var title: String
     var details: String
     var salary: Int
     var isFavorited: Bool
-   // var skills: [Skill]
+    var skills: [Skill]
     var location: String
     var contractType: String
     var isActive: Bool
     var postDate: Date
     
-    init(title: String, details: String, salary: Int, isFavorited: Bool, location: String, contractType: String, isActive: Bool) {
+    init(company: Company, title: String, details: String, salary: Int, isFavorited: Bool = false, skills: [Skill] = [], location: String, contractType: String, isActive: Bool) {
         self.id = UUID()
-       // self.company = company
+        self.company = company
         self.title = title
         self.details = details
         self.salary = salary
         self.isFavorited = isFavorited
-       // self.skills = skills
+        self.skills = skills
         self.location = location
         self.contractType = contractType
         self.isActive = isActive

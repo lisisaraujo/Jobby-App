@@ -12,6 +12,13 @@ struct HomeView: View {
     
     @State var selection: Int = 1
     @State private var path = NavigationPath()
+    @State var selectedJob = Job(
+        company: sampleCompanies[0], title: "",
+        details: "",
+        salary: 000,
+        location: "",
+        contractType: "",
+        isActive: true)
     
 
     
@@ -33,7 +40,7 @@ struct HomeView: View {
                 Spacer()
                 
                 TabView(selection: $selection) {
-                    JobsView(selection: $selection)
+                    JobsView(selection: $selection, path: $path)
                         .tabItem {
                             Label("All Jobs", systemImage: "bag.fill")
                         }
